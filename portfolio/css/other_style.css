@@ -1,0 +1,284 @@
+@charset "UTF=8";
+
+html {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  width: 100%;
+  padding: 3rem;
+  padding-top: 15rem;
+  letter-spacing: 0.25em;
+  font-size: 1.4rem;
+}
+/*ハンバーガーメニュー*/
+/*アイコン*/
+button {
+  background: none; /* 背景色をリセット */
+  color: inherit; /* 親要素から色を継承 */
+  border: none; /* ボーダーを削除 */
+  padding: 0; /* パディングをリセット */
+  margin: 0; /* マージンをリセット */
+  font: inherit; /* 親要素からフォントスタイルを継承 */
+  line-height: normal; /* 行の高さを通常に設定 */
+  cursor: pointer; /* カーソルをポインターに設定 */
+  text-align: center; /* テキストを中央揃えに設定 */
+  user-select: none; /* テキスト選択を無効化 */
+  -webkit-appearance: none; /* Webkitブラウザでのデフォルトスタイルを削除 */
+  -moz-appearance: none; /* Mozillaブラウザでのデフォルトスタイルを削除 */
+  appearance: none; /* 標準的な外観を削除 */
+}
+
+.hamburger {
+  width: 40px;
+  height: 24px;
+  position: fixed;
+  top: 15px;
+  right: 16px;
+  z-index: 9999999999999999;
+  background: transparent;
+}
+
+.hamburger_bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  background: #15355b;
+  transition: top 0.24s, transform 0.24s, opacity 0.24s;
+}
+
+.hamburger_bar:nth-child(1) {
+  top: 0;
+}
+
+.hamburger_bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger_bar:nth-child(3) {
+  top: 100%;
+  transform: translateY(-100%);
+}
+
+.hamburger.active .hamburger_bar:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.hamburger.active .hamburger_bar:nth-child(2) {
+  transform: translate(50%, -50%);
+  opacity: 0;
+}
+
+.hamburger.active .hamburger_bar:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/*アイコンおわり*/
+.menu-content {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.menu-content.waao {
+  background-color: #fff;
+  right: 0%;
+  top: 0px;
+  opacity: 1;
+  visibility: visible;
+
+  display: flex;
+  height: 699px;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  position: fixed;
+  width: 36%;
+  box-shadow: 2px -4px 36px 7px rgba(128, 128, 128, 0.699);
+}
+.menu-content ul li a {
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  text-align: center;
+  line-height: 6rem;
+  font-size: 31px;
+}
+.menu-content ul li a:first-child {
+  border-top: none;
+}
+
+.menu-content.waao ul li a {
+  display: block;
+  color: #15355b;
+}
+.menu-content ul li:last-of-type {
+  border-bottom: none;
+}
+.menu-content ul li a:hover {
+  color: #4476b3;
+}
+/*ハンバーガーメニューおわり*/
+img {
+  position: relative;
+  z-index: 11;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 9px;
+  box-shadow: 0 4px 13px 7px rgba(0, 0, 0, 0.32);
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 3rem;
+}
+p {
+  line-height: 44px;
+  letter-spacing: 0.1em;
+}
+
+h1 {
+  letter-spacing: 9.1px;
+  line-height: 1.5em;
+
+  font-size: 40px;
+
+  font-weight: bold;
+}
+.outline {
+  width: 82%;
+  margin: auto;
+  max-width: 1214px;
+}
+.title {
+  padding-top: 2em;
+}
+.comment {
+  padding-top: 2em;
+  display: grid;
+  gap: 1rem;
+}
+.comment > p {
+  margin: 0.8em 0;
+  line-height: 2;
+}
+.season {
+  padding: 3em 0;
+  display: grid;
+  gap: 0.8em;
+}
+.flex {
+  display: flex;
+  gap: 3rem;
+}
+.bold {
+  font-weight: bold;
+}
+
+.img_box {
+  background-color: #d3e1ff;
+  height: 264px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+}
+.img_bigbox {
+  position: relative;
+}
+.textbox {
+  display: flex;
+}
+.textbox > .bold {
+  min-width: 9em;
+}
+.backk {
+  display: flex;
+  gap: 1rem;
+  padding-top: 6rem;
+  padding-left: 3rem;
+}
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 4px;
+  margin-top: 29px;
+  border-radius: 9999px;
+  background-color: #dfdde5;
+  bottom: -0.8rem;
+  transition: all 0.7s ease;
+}
+.arrow::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 0;
+  width: 45px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: #dfdde5;
+  transform: rotate(-45deg);
+  transform-origin: 2px 50%;
+}
+a {
+  text-decoration: none;
+  font-size: 50px;
+  color: #696f7d;
+}
+
+.img_bigbox > img {
+  transition: all 0.6s ease;
+  animation: fadeUp 0.7s forwards;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translate(-50%, -90px);
+
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 0);
+
+    opacity: 1;
+  }
+}
+.title {
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 0.7s ease;
+}
+.title.fade {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.season {
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 0.7s ease;
+}
+.season.fade {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.comment {
+  opacity: 0;
+  transform: translateY(90px);
+  transition: all 0.7s ease;
+}
+.comment.fade {
+  transform: translateY(0px);
+  opacity: 1;
+}
+.backk:hover {
+  color: #abb4c9;
+  transform: scale(1.1) translateX(3%);
+  transition: all 0.7s ease;
+}
+.backk:hover .arrow {
+}
