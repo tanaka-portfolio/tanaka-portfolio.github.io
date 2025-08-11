@@ -64,3 +64,23 @@ $(".comment").on("inview", function (event, isInView) {
     }, 800);
   }
 });
+$(".js-back").on("click", function () {
+  console.log("戻るボタン押された！");
+  sessionStorage.setItem("scrollTo", "works");
+  location.href = "./index.html";
+});
+
+const targetId = sessionStorage.getItem("scrollTo");
+if (targetId) {
+  sessionStorage.removeItem("scrollTo");
+  $(window).on("pageshow", function () {
+    const $target = $("#" + targetId);
+    if ($target.length) {
+      $("body").css("overflow", "hidden");
+      setTimeout(function () {
+        $("html, body").scrollTop($target.offset().top);
+        $("body").css("overflow", "");
+      }, 0);
+    }
+  });
+}

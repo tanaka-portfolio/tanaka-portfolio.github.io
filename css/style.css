@@ -6,6 +6,7 @@ html {
   font-weight: bold;
   font-style: normal;
   width: 100%;
+  letter-spacing: 1px;
 }
 
 body {
@@ -121,20 +122,31 @@ button {
 
 /*アイコンおわり*/
 .menu-content {
+  text-align: center;
+  pointer-events: none;
+
   height: 0;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
+
 .menu-content.waao {
+  position: fixed; /* ← 元々の設定 */
+  pointer-events: auto;
+
   background-color: #fff;
   right: 0%;
   top: 0px;
   opacity: 1;
   visibility: visible;
+  left: auto;
 
   display: flex;
-  height: 699px;
+  height: 85%;
   justify-content: center;
   align-items: center;
   z-index: 999999;
@@ -157,6 +169,7 @@ button {
   display: block;
   color: #15355b;
 }
+
 .menu-content ul li:last-of-type {
   border-bottom: none;
 }
@@ -166,6 +179,7 @@ button {
 /*ハンバーガーメニューおわり*/
 
 @media screen and (max-width: 768px) {
+  /*携帯*/
   html {
     font-family: "Noto Sans JP", sans-serif;
     font-optical-sizing: auto;
@@ -176,9 +190,13 @@ button {
     display: none;
   }
 
+  .menu-content.waao {
+    height: 100%;
+    width: 100%;
+  }
   .responsive > p {
     text-align: center;
-    margin-top: 70%;
+    margin-top: 30%;
     font-size: 5vw;
   }
   .responsive > p:nth-child(2) {
@@ -397,8 +415,7 @@ button {
 
   .skill {
     display: flex;
-    gap: 3%;
-    max-width: 910px;
+    gap: 5%;
   }
   .box > p:nth-child(2) {
     font-size: 24px;
@@ -414,6 +431,7 @@ button {
   }
   .last > p {
   }
+
   .minibox {
     display: flex;
     justify-content: space-between;
@@ -485,6 +503,7 @@ button {
   .youtube:hover {
     transform: scale(1.2);
   }
+
   .youtube {
     background-image: url(../img/youtubeサムネイル１.png);
   }
@@ -506,6 +525,9 @@ button {
   .boxx > p {
     font-size: 20px;
     margin-top: 22px;
+  }
+  .access5 > p {
+    margin-top: -20px;
   }
   .sale3 {
     padding: 0 2rem;
